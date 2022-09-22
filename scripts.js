@@ -1,7 +1,7 @@
 function getComputerChoice(){
     let choice;
     choice = Math.floor(Math.random() * 3) + 1;
-    console.log(choice);
+    /*console.log(choice);*/
     if (choice == 1){
         return "rock"; 
     }
@@ -11,7 +11,29 @@ function getComputerChoice(){
     else {
         return "scissor";
     }
-        
-
 }
-console.log(getComputerChoice());
+/*console.log(getComputerChoice());*/
+
+function playRound(playerSelection, computerSelection){
+   if (playerSelection == "rock" && computerSelection == "paper"){
+    console.log("You Lose! Paper beats Rock");
+   } else if (playerSelection == "rock" && computerSelection == "scissor"){
+    console.log("You win! Rock beats Scissor");
+   } else if (playerSelection == "paper" && computerSelection == "rock"){
+    console.log("You Win! Paper beats Rock");
+   } else if (playerSelection =="paper" && computerSelection == "scissor"){
+    console.log("You Lose! Scissor beats Paper");
+   } else if (playerSelection == "scissor" && computerSelection == "rock"){
+    console.log("You Lose! Rock beats Scissor");
+   } else if (playerSelection == "scissor" && computerSelection == "paper"){
+    console.log("You Win! Scissor beats Paper");
+   } else {
+    console.log("That's a tie! Try again")
+   }
+   
+}
+
+playerSelection = "rock";
+computerSelection = getComputerChoice();
+console.log(computerSelection);
+console.log(playRound(playerSelection, computerSelection));
