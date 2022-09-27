@@ -40,16 +40,6 @@ function playRound(playerSelection, computerSelection){
    }
 }
 
-
-/*answer = prompt("Choose: Rock, Paper or Scissor");
-playerSelection = answer.toLowerCase();
-console.log(playerSelection);
-computerSelection = getComputerChoice();
-console.log(computerSelection);
-console.log(playRound(playerSelection, computerSelection));*/ 
-
-/* */ 
-
 function game(){
 
     let winCount = 0;
@@ -78,6 +68,8 @@ function game(){
 
             loseCount++;
         }
+
+        console.log("\n");
 
     }
 
