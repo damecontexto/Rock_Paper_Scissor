@@ -1,7 +1,8 @@
 function getComputerChoice(){
+
     let choice;
     choice = Math.floor(Math.random() * 3) + 1;
-    /*console.log(choice);*/
+    
     if (choice == 1){
         return "rock"; 
     }
@@ -12,29 +13,85 @@ function getComputerChoice(){
         return "scissor";
     }
 }
-/*console.log(getComputerChoice());*/
+
 
 function playRound(playerSelection, computerSelection){
-   if (playerSelection == "rock" && computerSelection == "paper"){
-    console.log("You Lose! Paper beats Rock");
+
+    const win = "You win! " + playerSelection + " beats " + computerSelection;
+    
+    const lose = "You lose! " + computerSelection + " beats " + playerSelection;
+
+    if (playerSelection == "rock" && computerSelection == "paper"){
+    return lose;
    } else if (playerSelection == "rock" && computerSelection == "scissor"){
-    console.log("You win! Rock beats Scissor");
+    return win;
    } else if (playerSelection == "paper" && computerSelection == "rock"){
-    console.log("You Win! Paper beats Rock");
+    return win;
    } else if (playerSelection =="paper" && computerSelection == "scissor"){
-    console.log("You Lose! Scissor beats Paper");
+    return lose;
    } else if (playerSelection == "scissor" && computerSelection == "rock"){
-    console.log("You Lose! Rock beats Scissor");
+    return lose;
    } else if (playerSelection == "scissor" && computerSelection == "paper"){
-    console.log("You Win! Scissor beats Paper");
+    return win;
+   } else if (playerSelection == computerSelection){
+    return "That's a tie! Try again";
    } else {
-    console.log("That's a tie! Try again")
+    return "Wrong answer";
    }
-   
 }
 
-answer = prompt("Choose: Rock, Paper or Scissor");
+
+/*answer = prompt("Choose: Rock, Paper or Scissor");
 playerSelection = answer.toLowerCase();
+console.log(playerSelection);
 computerSelection = getComputerChoice();
 console.log(computerSelection);
-console.log(playRound(playerSelection, computerSelection));
+console.log(playRound(playerSelection, computerSelection));*/ 
+
+/* */ 
+
+function game(){
+
+    let winCount = 0;
+
+    let loseCount = 0;
+
+    for (let i = 0; i < 5; i++) {
+
+        answer = prompt("Choose: Rock, Paper or Scissor");
+        
+        playerSelection = answer.toLowerCase();
+        
+        console.log("You choose: " + playerSelection);
+        
+        computerSelection = getComputerChoice();
+        
+        console.log("Computer chooses: " + computerSelection);
+        
+        console.log(playRound(playerSelection, computerSelection));
+        
+        if (playRound(playerSelection, computerSelection).includes("win")) {
+            
+            winCount++; 
+
+        } else if (playRound(playerSelection, computerSelection).includes("lose")){
+
+            loseCount++;
+        }
+
+    }
+
+    if (winCount > loseCount) {
+
+        console.log("You won the match by " + winCount + " to " + loseCount);
+        
+    } else {
+
+        console.log("You lost the match by " + winCount + " to " + loseCount)
+    }
+
+}
+
+console.log(game());
+
+
